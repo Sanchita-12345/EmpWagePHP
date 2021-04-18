@@ -10,16 +10,18 @@
         }
         public function employee_attendance(){
             $empCheck = rand(0,2);
-            if($empCheck == 0){
-                echo "The employee is absent";
-            }
-            else if($empCheck == 1){
-                echo "The employee is present and a full time employee.";
-                self::fulltime_employeeWage();
-            }
-            else{
-                echo "The employee is present and a part time employee.";
-                self::parttime_employeeWage();
+            switch($empCheck){
+                case 0:
+                    echo "The employee is absent";
+                    break;
+                case 1 :
+                    echo "The employee is present and a full time employee.";
+                    self::fulltime_employeeWage();
+                    break;
+                case 2:
+                    echo "The employee is present and a part time employee.";
+                    self::parttime_employeeWage();
+                    break;
             }
         }
 
