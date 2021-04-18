@@ -3,10 +3,13 @@
         public $wage_per_hour;
         public $full_day_hour;
         public $part_time_hour;
+        public $working_day_per_month;
+
         public function __construct(){
             $this->wage_per_hour = 20;
             $this->full_day_hour = 8;
             $this->part_time_hour = 4;
+            $this->working_day_per_month = 20;
         }
         public function employee_attendance(){
             $empCheck = rand(0,2);
@@ -29,12 +32,16 @@
             //calculate daily wage of fulltime employee
             $wage_per_day = $this->wage_per_hour * $this->full_day_hour;
             echo "<br>Daily wages of the full time employee is: ".$wage_per_day;
+            $wage_per_month = $this->working_day_per_month * $wage_per_day;
+            echo "<br>Monthly wage is: ".$wage_per_month;
         }
 
         public function parttime_employeeWage(){
             //calculate daily wage of parttime employee
             $wage_per_day = $this->wage_per_hour * $this->part_time_hour;
             echo "<br>Daily wages of the part time employee is: ".$wage_per_day;
+            $wage_per_month = $this->working_day_per_month * $wage_per_day;
+            echo "<br>Monthly wage is: ".$wage_per_month;
         }
     }
 $obj = new EmpWage();
