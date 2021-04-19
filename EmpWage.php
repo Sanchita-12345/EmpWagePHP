@@ -34,7 +34,7 @@
             //calculate daily wage of fulltime employee
             if($this->max_working_hour_per_month == 100 || $this->max_working_day_per_month == 20){
                 $wage_per_month = $this->max_working_hour_per_month * $this->max_working_day_per_month * $this->wage_per_hour * $this->full_day_hour;
-            echo "<br>Monthly wage of this employee is: ".$wage_per_month;
+            echo "<br>Monthly wage of this employee is : ".$wage_per_month;
             }
         }
 
@@ -42,7 +42,7 @@
             //calculate daily wage of parttime employee
             if($this->max_working_hour_per_month == 100 || $this->max_working_day_per_month == 20){
                 $wage_per_month = $this->max_working_hour_per_month * $this->max_working_day_per_month * $this->wage_per_hour * $this->part_time_hour;
-            echo "<br>Monthly wage of this employee is: ".$wage_per_month;
+            echo "<br>Monthly wage of this employee is : ".$wage_per_month;
             }
         }
     }
