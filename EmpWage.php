@@ -48,10 +48,12 @@
         }
     }
 $obj1 = new EmpWage("Dmart", 100, 26, 30);
-echo "<br>The company is ".$obj1->companyName;
+//echo "<br>The company is ".$obj1->companyName;
+$computeWageArray = array($companyName, $wage_per_month, $max_working_day_per_month, $max_working_hour_per_month);
+print_r($computeWageArray);
 $obj1->employee_attendance();
 
-$obj2 = new EmpWage("Bigbasket", 150, 20, 40);
-echo "<br>The company is ".$obj2->companyName;
-$obj2->employee_attendance();
+// $obj2 = new EmpWage("Bigbasket", 150, 20, 40);
+// echo "<br>The company is ".$obj2->companyName;
+// $obj2->employee_attendance();
 ?>
