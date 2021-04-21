@@ -6,7 +6,6 @@
         public $max_working_day_per_month;
         public $max_working_hour_per_month;
         public $companyName;
-        //public $wage_per_day;
         
         public function __construct($companyName, $wage_per_day, $max_working_day_per_month, $max_working_hour_per_month){
             $this->companyName = $companyName;
