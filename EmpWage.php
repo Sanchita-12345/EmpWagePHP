@@ -1,51 +1,31 @@
 <?php
-    class EmpWage{
-        public $wage_per_hour;
-        public $full_day_hour;
-        public $part_time_hour;
-        public $max_working_day_per_month;
-        public $max_working_hour_per_month;
+    $IS_PART_TIME = 1;
+    $IS_FULL_TIME =2;
+    $wage_per_hour =20;
+    $num_of_working_days = 20;
+    $max_working_hour_per_month = 100;
+    $totalEmpWage = 0;
+    $totalEmpHrs = 0;
+    $totalWorkingDays = 0;
 
-        public function __construct(){
-            $this->wage_per_hour = 20;
-            $this->full_day_hour = 8;
-            $this->part_time_hour = 4;
-            $this->max_working_day_per_month = 20;
-            $this->max_working_hour_per_month = 100;
+    while ($totalEmpHrs <= $max_working_hour_per_month &&
+            $totalWorkingDays < $num_of_working_days) {
+        $totalWorkingDays++;
+        $empCheck = rand(1,2);
+        switch($empCheck){
+            case $IS_PART_TIME :
+                $empHrs = 4;
+                break;
+            case $IS_FULL_TIME:
+                $empHrs = 8;
+                break;
+            default:
+                $empHrs =0;
+                break;
         }
-        public function employee_attendance(){
-            $empCheck = rand(0,2);
-            switch($empCheck){
-                case 0:
-                    echo "The employee is absent";
-                    break;
-                case 1 :
-                    echo "The employee is present and a full time employee.";
-                    self::fulltime_employeeWage();
-                    break;
-                case 2:
-                    echo "The employee is present and a part time employee.";
-                    self::parttime_employeeWage();
-                    break;
-            }
-        }
-
-        public function fulltime_employeeWage(){
-            //calculate daily wage of fulltime employee
-            if($this->max_working_hour_per_month == 100 || $this->max_working_day_per_month == 20){
-                $wage_per_month = $this->max_working_hour_per_month * $this->max_working_day_per_month * $this->wage_per_hour * $this->full_day_hour;
-            echo "<br>Monthly wage of this employee is: ".$wage_per_month;
-            }
-        }
-
-        public function parttime_employeeWage(){
-            //calculate daily wage of parttime employee
-            if($this->max_working_hour_per_month == 100 || $this->max_working_day_per_month == 20){
-                $wage_per_month = $this->max_working_hour_per_month * $this->max_working_day_per_month * $this->wage_per_hour * $this->part_time_hour;
-            echo "<br>Monthly wage of this employee is: ".$wage_per_month;
-            }
-        }
+        $totalEmpHrs += $empHrs;
+        echo "<br>Days : ".$totalWorkingDays." <br>Hours : ".$empHrs;
     }
-$obj = new EmpWage();
-$obj->employee_attendance();
+    $totalEmpWage = $totalEmpHrs * $wage_per_hour;
+    echo "<br>Total Employee wage : ".$totalEmpWage;
 ?>
