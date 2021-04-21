@@ -1,49 +1,23 @@
 <?php
-    class EmpWage{
-        public $wage_per_hour;
-        public $full_day_hour;
-        public $part_time_hour;
-        public $working_day_per_month;
-
-        public function __construct(){
-            $this->wage_per_hour = 20;
-            $this->full_day_hour = 8;
-            $this->part_time_hour = 4;
-            $this->working_day_per_month = 20;
+    $wage_per_hour = 20;
+    $num_of_working_days = 2;
+    $totalEmpWage = 0;
+        
+    for($day =0; $day < $num_of_working_days; $day++){
+        $empCheck = rand(1,2);
+        switch($empCheck){
+            case 1 :
+                $empHrs = 8;
+                break;
+            case 2:
+                $empHrs = 4;
+                break;
+            default:
+                break;
         }
-        public function employee_attendance(){
-            $empCheck = rand(0,2);
-            switch($empCheck){
-                case 0:
-                    echo "The employee is absent";
-                    break;
-                case 1 :
-                    echo "The employee is present and a full time employee.";
-                    self::fulltime_employeeWage();
-                    break;
-                case 2:
-                    echo "The employee is present and a part time employee.";
-                    self::parttime_employeeWage();
-                    break;
-            }
-        }
-
-        public function fulltime_employeeWage(){
-            //calculate daily wage of fulltime employee
-            $wage_per_day = $this->wage_per_hour * $this->full_day_hour;
-            echo "<br>Daily wages of the full time employee is: ".$wage_per_day;
-            $wage_per_month = $this->working_day_per_month * $wage_per_day;
-            echo "<br>Monthly wage is: ".$wage_per_month;
-        }
-
-        public function parttime_employeeWage(){
-            //calculate daily wage of parttime employee
-            $wage_per_day = $this->wage_per_hour * $this->part_time_hour;
-            echo "<br>Daily wages of the part time employee is: ".$wage_per_day;
-            $wage_per_month = $this->working_day_per_month * $wage_per_day;
-            echo "<br>Monthly wage is: ".$wage_per_month;
-        }
+        $empWage = $wage_per_hour * $empHrs;
+        $totalEmpWage += $empWage;
     }
-$obj = new EmpWage();
-$obj->employee_attendance();
+    echo "Employee wage: ".$empWage;
+    echo "<br>Total wage: ".$totalEmpWage;
 ?>
