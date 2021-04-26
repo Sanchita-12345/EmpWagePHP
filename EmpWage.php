@@ -1,40 +1,17 @@
 <?php
-    class EmpWage{
-        public $wage_per_hour;
-        public $full_day_hour;
-        public $part_time_hour;
-        public function __construct(){
-            $this->wage_per_hour = 20;
-            $this->full_day_hour = 8;
-            $this->part_time_hour = 4;
-        }
-        public function employee_attendance(){
-            $empCheck = rand(0,2);
-            if($empCheck == 0){
-                echo "The employee is absent";
-            }
-            else if($empCheck == 1){
-                echo "The employee is present and a full time employee.";
-                self::fulltime_employeeWage();
-            }
-            else{
-                echo "The employee is present and a part time employee.";
-                self::parttime_employeeWage();
-            }
-        }
-
-        public function fulltime_employeeWage(){
-            //calculate daily wage of fulltime employee
-            $wage_per_day = $this->wage_per_hour * $this->full_day_hour;
-            echo "<br>Daily wages of the full time employee is: ".$wage_per_day;
-        }
-
-        public function parttime_employeeWage(){
-            //calculate daily wage of parttime employee
-            $wage_per_day = $this->wage_per_hour * $this->part_time_hour;
-            echo "<br>Daily wages of the part time employee is: ".$wage_per_day;
-        }
+    $IS_FULL_TIME = 1;
+    $IS_PART_TIME = 2;
+    $wage_per_hour =20;
+    $empCheck = rand(0,2);
+    if($empCheck == 0){
+        $EmpHrs = 0;
     }
-$obj = new EmpWage();
-$obj->employee_attendance();
+    else if($empCheck == $IS_FULL_TIME){
+        $EmpHrs = 8;
+    }
+    else if($empCheck == $IS_PART_TIME){
+        $EmpHrs = 4;
+    }
+    $wage_per_day = $wage_per_hour * $EmpHrs;
+    echo "Daily Employee Wage is: ".$wage_per_day;
 ?>
